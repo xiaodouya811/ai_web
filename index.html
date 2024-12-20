@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的个人网站</title>
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="logo">银色子弹</div>
+        <div class="nav-links">
+            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c">首页</a>
+            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c">关于我</a>
+            <a href="#portfolio">作品集</a>
+            <a href="#ai-assistant">AI助手</a>
+            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c">联系</a>
+        </div>
+    </nav>
+
+    <!-- 英雄区 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>我是<span class="highlight">银色子弹</span></h1>
+            <p>一位热爱代码与鱼类的程序员，用技术构建数字世界，用水族缔造自然之美</p>
+            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c" class="cta-button" title="点击访问我的小红书主页">了解更多</a>
+        </div>
+        <div class="hero-image">
+            <img src="images/4.webp" alt="银色子弹的照片">
+        </div>
+    </section>
+
+    <!-- AI助手引导区 -->
+    <section id="ai-assistant" class="ai-section">
+        <div class="chat-container">
+            <h2 class="section-title">AI助手对话</h2>
+            <div id="chatHistory" class="chat-history"></div>
+            <div class="chat-input">
+                <div class="input-wrapper">
+                    <textarea id="userInput" placeholder="输入您的问题..."></textarea>
+                    <!-- 暂时注释掉图片上传按钮
+                    <div class="upload-btn">
+                        <input type="file" id="imageInput" accept="image/*" multiple>
+                        <i class="fas fa-image"></i>
+                    </div>
+                    -->
+                </div>
+                <button id="sendMessage">发送</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 修改作品集轮播区 -->
+    <section id="portfolio" class="portfolio-section">
+        <h2 class="section-title">作品集</h2>
+        <div class="swiper portfolio-swiper">
+            <div class="swiper-wrapper">
+                <!-- 作品轮播项 -->
+                <div class="swiper-slide">
+                    <div class="portfolio-item">
+                        <img src="images/1.webp" alt="AI对话助手">
+                        <div class="portfolio-info">
+                            <h3>AI对话助手</h3>
+                            <p>基于大语言模型开发的多模态对话系统，支持图文理解和自然对话，可以处理图片和文本的智能交互。</p>
+                            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c" class="portfolio-link">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="portfolio-item">
+                        <img src="images/2.webp" alt="个人主页">
+                        <div class="portfolio-info">
+                            <h3>响应式个人主页</h3>
+                            <p>使用HTML5、CSS3和JavaScript开发的现代化个人网站，支持多端适配。</p>
+                            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c" class="portfolio-link">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="portfolio-item">
+                        <img src="images/3.webp" alt="作品展示">
+                        <div class="portfolio-info">
+                            <h3>作品集展示</h3>
+                            <p>集成Swiper.js的作品展示轮播，支持触摸滑动和自动播放功能。</p>
+                            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c" class="portfolio-link">了解更多</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 添加导航按钮 -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- 添加分页器 -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- 在返回顶部按钮之前添加页脚 -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="https://www.xiaohongshu.com/user/profile/56fb2396aed7580cda3e3d0c" class="social-link">
+                <i class="fas fa-book-open"></i>
+                <span>小红书</span>
+            </a>
+            <a href="#" class="social-link disabled">
+                <i class="fab fa-tiktok"></i>
+                <span>抖音（暂无）</span>
+            </a>
+            <a href="#" class="social-link disabled">
+                <i class="fab fa-weixin"></i>
+                <span>微信（暂无）</span>
+            </a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" defer></script>
+    <script src="api.js" defer></script>
+    <script src="script.js" defer></script>
+</body>
+</html> 

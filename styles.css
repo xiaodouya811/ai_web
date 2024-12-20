@@ -1,0 +1,611 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --background-color: #f5f6fa;
+    --text-color: #2c3e50;
+    --card-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--background-color);
+}
+
+/* 导航栏样式 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: var(--card-shadow);
+}
+
+/* AI模态框样式 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+}
+
+.modal-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 添加关闭按钮样式 */
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: var(--primary-color);
+}
+
+.chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.chat-history {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+} 
+
+/* 添加hero区域的样式 */
+.hero {
+    min-height: 80vh; /* 减小最小高度 */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 2rem 1rem 2rem; /* 减小上下内边距 */
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    max-width: 200px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: var(--card-shadow);
+}
+
+/* 作品集区域样式 */
+.portfolio-section {
+    padding: 2rem 2rem;
+    background: var(--background-color);
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 1.5rem; /* 减小标题下方间距 */
+    color: var(--text-color);
+    font-size: 2rem; /* 稍微减小字号 */
+}
+
+/* Swiper容器样式 */
+.portfolio-swiper {
+    width: 100%;
+    height: 450px;
+    padding: 1rem 0;
+    overflow: visible; /* 允许内容溢出，以显示hover效果 */
+}
+
+.swiper-slide {
+    height: auto;
+    display: flex;
+    align-items: stretch;
+}
+
+/* 作品卡片样式 */
+.portfolio-item {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    background: white;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio-info {
+    transform: translateY(0);
+}
+
+.portfolio-info h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: var(--text-color);
+}
+
+.portfolio-info p {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+.portfolio-link {
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.portfolio-link:hover {
+    background: darken(var(--primary-color), 10%);
+    transform: translateY(-2px);
+}
+
+/* Swiper导航按钮样式 */
+.swiper-button-next,
+.swiper-button-prev {
+    color: var(--primary-color);
+    width: 40px;
+    height: 40px;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 20px;
+}
+
+.swiper-pagination-bullet-active {
+    background: var(--primary-color);
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .portfolio-swiper {
+        height: 400px;
+    }
+    
+    .portfolio-item {
+        height: 300px;
+    }
+}
+
+/* 聊天界面样式补充 */
+.input-wrapper {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.upload-btn {
+    position: relative;
+    cursor: pointer;
+}
+
+.upload-btn input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.upload-btn i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.message-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.message-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+}
+
+/* AI助手区域样式 */
+.ai-section {
+    padding: 1rem 2rem 2rem; /* 减小上下内边距 */
+    background: var(--background-color);
+}
+
+.chat-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--card-shadow);
+    border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.chat-history {
+    height: 400px;
+    overflow-y: auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 10px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.chat-input textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+    min-height: 60px;
+}
+
+#sendMessage {
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#sendMessage:hover {
+    background: darken(var(--primary-color), 10%);
+}
+
+#sendMessage:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.chat-input textarea:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+/* 消息样式优化 */
+.message {
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 80%;
+    clear: both;
+}
+
+.user-message {
+    background: var(--primary-color);
+    color: white;
+    float: right;
+}
+
+.ai-message {
+    background: #e9ecef;
+    color: var(--text-color);
+    float: left;
+}
+
+/* 图片容器样式优化 */
+.message-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+    justify-content: flex-end;
+}
+
+.user-message .message-images {
+    justify-content: flex-end;
+}
+
+.ai-message .message-images {
+    justify-content: flex-start;
+}
+
+/* 清除浮动 */
+.chat-history::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* 系统消息样式 */
+.system-message {
+    background: #f0f0f0;
+    color: #666;
+    text-align: center;
+    margin: 10px auto;
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9em;
+}
+
+/* 图片预览样式优化 */
+.message-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+}
+
+.message-image {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+}
+
+.message-image:hover {
+    transform: scale(1.05);
+}
+
+/* 页脚样式 */
+.footer {
+    margin-top: 2rem;
+    background: white;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.05);
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.social-link i {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.social-link span {
+    font-size: 0.9rem;
+}
+
+/* 响应式调整 */
+@media (max-width: 768px) {
+    .social-links {
+        gap: 1.5rem;
+    }
+    
+    .social-link i {
+        font-size: 1.5rem;
+    }
+}
+
+/* 小红书图标特殊样式 */
+.social-link .fa-book-open {
+    color: #fe2c55;  /* 小红书品牌色 */
+    font-size: 1.6rem;  /* 稍微调整大小以保持视觉平衡 */
+}
+
+.social-link:hover .fa-book-open {
+    color: #ff4d6d;  /* 悬停时的颜色 */
+}
+
+/* 调整其他社交图标的颜色 */
+.social-link .fa-tiktok {
+    color: #000000;
+}
+
+.social-link .fa-weixin {
+    color: #07c160;
+}
+
+.social-link:hover .fa-tiktok {
+    color: var(--primary-color);
+}
+
+.social-link:hover .fa-weixin {
+    color: #00ae66;
+}
+
+/* 添加禁用状态样式 */
+.social-link.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.social-link.disabled span {
+    color: #999;
+}
+
+/* 修改CTA按钮样式 */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.cta-button:hover {
+    background: darken(var(--primary-color), 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+/* 添加工具提示样式 */
+.cta-button[title]:hover::after {
+    content: attr(title);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 4px;
+    font-size: 14px;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Swiper样式优化 */
+.portfolio-swiper {
+    padding: 20px 0;
+    height: 450px; /* 调整高度 */
+}
+
+.swiper-slide {
+    height: auto;
+}
+
+/* 添加平滑滚动 */
+html {
+    scroll-behavior: smooth;
+}
+
+/* 导航链接样式优化 */
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* 添加当前section指示器 */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
